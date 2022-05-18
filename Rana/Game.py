@@ -37,7 +37,6 @@ class Game():
         fondo = Sprite("fondo", (0, 0))
         self.lge.addGObject(fondo, 0)
 
-
         # el hogar
         for i in range(5):
             home = GameObject((42 + i * 108, 22), (30, 30));
@@ -46,14 +45,14 @@ class Game():
             self.lge.addGObject(home, 1);
 
         # las tortugas
-        tortuga = Tortuga("tortuga", "R", 10, 60, 1)
+        tortuga = Tortuga("tortuga", "R", 10, 60, 80)
         self.lge.addGObject(tortuga, 1)
 
         # los troncos
-        tronco = Tronco("tronco-largo", "R", 80, 100, 2)
+        tronco = Tronco("tronco-largo", "R", 80, 100, 100)
         self.lge.addGObject(tronco, 1)
 
-        tronco = Tronco("tronco-largo", "R", 200, 172, 2)
+        tronco = Tronco("tronco-largo", "R", 200, 172)
         self.lge.addGObject(tronco, 1)
 
         # el agua
@@ -65,7 +64,7 @@ class Game():
         # los vehiculos
         car = Vehiculo("auto-azul", "R", 10, 310)
         self.lge.addGObject(car, 1)
-        car = Vehiculo("auto-rojo", "L", 190, 238, 1)
+        car = Vehiculo("auto-rojo", "L", 190, 238, 100)
         self.lge.addGObject(car, 1)
 
         # la rana

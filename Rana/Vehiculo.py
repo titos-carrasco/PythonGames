@@ -7,7 +7,7 @@ from lge.Rectangle import Rectangle
 
 class Vehiculo(Sprite):
 
-    def __init__(self, iname, dir, x, y, pixels=2):
+    def __init__(self, iname, dir, x, y, velocity=120):
         super().__init__(iname, (x, y))
 
         # acceso a LGE
@@ -21,7 +21,7 @@ class Vehiculo(Sprite):
         self.setTag("auto")
         self.enableCollider(True)
         self.dir = dir
-        self.pixels = pixels
+        self.velocity = velocity
 
     def onUpdate(self, dt):
         cw, ch = self.lge.getCameraSize()
@@ -30,11 +30,11 @@ class Vehiculo(Sprite):
         w, h = self.getSize()
 
         if(self.dir == "R"):
-            x = x + self.pixels
+            x = x + self.velocity * dt
             if(x > cw):
                 x = 0 - w
         else:
-            x = x - self.pixels
+            x = x - self.velocity * dt
             if(x + w < 0):
                 x = cw - 1
 

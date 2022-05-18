@@ -7,7 +7,7 @@ from lge.Rectangle import Rectangle
 
 class Tortuga(Sprite):
 
-    def __init__(self, iname, dir, x, y, pixels=2):
+    def __init__(self, iname, dir, x, y, velocity=120):
         super().__init__(iname, (x, y))
 
         # acceso a LGE
@@ -21,7 +21,7 @@ class Tortuga(Sprite):
         self.setTag("tortuga")
         self.enableCollider(True)
         self.dir = dir
-        self.pixels = pixels
+        self.velocity = velocity
 
     def onUpdate(self, dt):
         self.nextImage(dt, 0.5)
@@ -32,11 +32,11 @@ class Tortuga(Sprite):
         w, h = self.getSize()
 
         if(self.dir == "R"):
-            x = x + self.pixels
+            x = x + self.velocity * dt
             if(x > cw):
                 x = 0 - w
         else:
-            x = x - self.pixels
+            x = x - self.velocity * dt
             if(x + w < 0):
                 x = cw - 1
 
