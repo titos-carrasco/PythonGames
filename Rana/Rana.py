@@ -16,13 +16,9 @@ class Rana(Sprite):
         w, h = self.lge.getCameraSize()
         self.setBounds(Rectangle((3, 20), (w - 6, h - 22)))
 
-        # los eventos que recibiremos
-        self.setOnEvents(LittleGameEngine.E_ON_UPDATE)
-        self.setOnEvents(LittleGameEngine.E_ON_COLLISION)
-
         # mis atributos
         self.x0, self.y0 = x, y
-        self.enableCollider(True)
+        self.enableCollider(True, True)
         self.start()
 
     def start(self):
@@ -33,6 +29,7 @@ class Rana(Sprite):
         self.setImage("rana-up", 0)
         self.obgobj = None
 
+    # @Override
     def onUpdate(self, dt):
         if(not self.alive):
             t = time.time()
@@ -69,6 +66,7 @@ class Rana(Sprite):
                 self.nextImage();
                 self.moving = False
 
+    # @Override
     def onCollision(self, dt, gobjs):
         if(not self.alive):
             return

@@ -13,16 +13,13 @@ class Tronco(Sprite):
         # acceso a LGE
         self.lge = LittleGameEngine.getInstance()
 
-        # los eventos que recibiremos
-        self.setOnEvents(LittleGameEngine.E_ON_UPDATE)
-        self.setOnEvents(LittleGameEngine.E_ON_COLLISION)
-
         # mis atributos
         self.setTag("tronco")
-        self.enableCollider(True)
+        self.enableCollider(True, True)
         self.dir = dir
         self.velocity = velocity
 
+    # @Override
     def onUpdate(self, dt):
         cw, ch = self.lge.getCameraSize()
 
@@ -40,5 +37,6 @@ class Tronco(Sprite):
 
         self.setPosition(x, y)
 
+    # @Override
     def onCollision(self, dt, gobjs):
         pass

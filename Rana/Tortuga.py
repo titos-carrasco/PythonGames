@@ -13,16 +13,13 @@ class Tortuga(Sprite):
         # acceso a LGE
         self.lge = LittleGameEngine.getInstance()
 
-        # los eventos que recibiremos
-        self.setOnEvents(LittleGameEngine.E_ON_UPDATE)
-        self.setOnEvents(LittleGameEngine.E_ON_COLLISION)
-
         # mis atributos
         self.setTag("tortuga")
-        self.enableCollider(True)
+        self.enableCollider(True, True)
         self.dir = dir
         self.velocity = velocity
 
+    # @Override
     def onUpdate(self, dt):
         self.nextImage(dt, 0.5)
 
@@ -42,5 +39,6 @@ class Tortuga(Sprite):
 
         self.setPosition(x, y)
 
+    # @Override
     def onCollision(self, dt, gobjs):
         pass
